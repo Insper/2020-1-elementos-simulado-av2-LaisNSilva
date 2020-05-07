@@ -17,3 +17,43 @@
 ; RAM[6]:  0  | RAM[6]:  3 -
 ; RAM[7]:  0  | RAM[7]:  0
 
+leaw $0, %A
+movw %A, (%A)
+
+leaw $2, %A
+movw (%A), %D
+leaw $1, %A
+movw %D, (%A)
+
+VOLTA:
+leaw $1, %A
+movw (%A), %D
+leaw $FIM, %A
+je
+nop
+leaw $0, %A
+movw (%A), %D
+leaw $3, %A
+addw %A, %D, %A
+movw %D, (%A)
+
+leaw $0, %A
+movw (%A), %D
+incw %D
+movw %D, (%A)
+
+leaw $1, %A
+movw (%A), %D
+decw %D
+movw %D, (%A)
+leaw $VOLTA, %A
+jmp
+nop
+
+
+FIM:
+
+
+
+
+
